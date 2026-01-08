@@ -22,17 +22,17 @@
 			<div class="card shadow rounded-4 bg-dark" style="width: 22rem;">
 				<div class="card-body">
 					<h3 class="card-title text-center mb-3 text-white">Login</h3>
-					<form>
+					<form action="login">
 						<!-- Username -->
 						<div class="mb-3">
 
-							<input type="text" class="form-control" id="username"
+							<input type="text" class="form-control" name="username"
 								placeholder="Enter username" required>
 
 						</div>
 						<!-- Password -->
 						<div class="mb-3">
-							<input type="password" class="form-control" id="password"
+							<input type="password" class="form-control" name="password"
 								placeholder="Enter password" required>
 						</div>
 						<!-- Button -->

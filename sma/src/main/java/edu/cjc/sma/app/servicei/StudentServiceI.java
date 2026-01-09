@@ -10,6 +10,11 @@ public interface StudentServiceI {
 	public List<Student> getAllData();
 	public List<Student> getAllStudentByBatchMode(String batchNumber,String batchMode);
 	public List<Student> deleteData(int studentId);
+	public List<Student> onPaging(int pagenumber,int pagesize);
+	public Student getSingleStudent(int studentId);
+	public void updateStudentFees(int studentId,double ammount);
+	public Student getSingleBatch(int studentId);
+	public void updateBatch(int studentId,String batchNumber,String batchMode);
 	
 
 }

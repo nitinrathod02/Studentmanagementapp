@@ -80,7 +80,49 @@ public class AdminController {
 		return "adminscreen";
 	}
 	
+	@RequestMapping("/paging")
+	public String onPaging(@RequestParam("pagenumber")int pagenumber ,Model m) {
+		 
+		List<Student> list=ssi.onPaging(pagenumber, 4);
+		m.addAttribute("data", list);
+		
+		return "adminscreen";
+	}
 	
+	@RequestMapping("/payfees")
+	public String onFees(@RequestParam("studentId")int studentnId,Model m) {
+		
+		Student student=ssi.getSingleStudent(studentnId);
+		m.addAttribute("stu", student);
+		return "fees";
+	}
 	
+	@RequestMapping("/updatefees")
+	public String updateFees(@RequestParam("studentId")int studentId,@RequestParam("ammount")double ammount,Model m) {
+		
+		ssi.updateStudentFees(studentId, ammount);
+		List<Student> list=ssi.getAllData();
+		m.addAttribute("data", list);
+		return "adminscreen";
+	}
+	
+	@RequestMapping("/shiftbatch")
+	public String onShift(@RequestParam("studentId")int studentId,Model m) {
+		
+		Student s=ssi.getSingleBatch( studentId);
+		m.addAttribute("stu", s);
+		
+		return "shift";
+		
+	}
+	
+	@RequestMapping("/updatebatch")
+	public String updateBatch(@RequestParam("batchNumber")String batchNumber,@RequestParam("batchMode")String batchMode,@RequestParam("studentId")int studentId,Model m) {
+		
+		ssi.updateBatch(studentId, batchNumber, batchMode);
+		List<Student> list=ssi.getAllData();
+		m.addAttribute("data", list);
+		return "adminscreen";
+	}
 
 }
